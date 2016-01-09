@@ -1,0 +1,16 @@
+# Please read: http://git-scm.com/docs/gitignore
+
+# Gradle
+.gradle/
+build/
+
+# Eclipse
+bin/
+.project
+.classpath
+.settings/
+
+# IntelliJ IDEA
+*.iml
+.idea/
+out/

@@ -1,0 +1,29 @@
+plugins {
+	id 'eclipse'
+	id 'idea'
+	id 'application'
+}
+
+application {
+	mainClass = 'Hangman'
+}
+
+dependencies {
+	implementation files('libs/acm-2.0.jar')
+}
+
+distributions {
+    main {
+        contents {
+            from('worlds/.txt') {
+                into('.')
+            }
+        }
+    }
+}
+
+tasks.register('debug', JavaExec) {
+	dependsOn classes
+	mainClass = 'Hangman'
+	debug = true
+}

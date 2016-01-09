@@ -1,0 +1,29 @@
+plugins {
+	id 'eclipse'
+	id 'idea'
+	id 'application'
+}
+
+application {
+	mainClass = 'WordCount'
+}
+
+dependencies {
+	implementation files('libs/acm-2.0.jar')
+}
+
+distributions {
+    main {
+        contents {
+            from('lear.txt') {
+                into('.')
+            }
+        }
+    }
+}
+
+tasks.register('debug', JavaExec) {
+	dependsOn classes
+	mainClass = 'WordCount'
+	debug = true
+}

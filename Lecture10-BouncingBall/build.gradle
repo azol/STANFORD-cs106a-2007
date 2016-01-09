@@ -1,0 +1,19 @@
+plugins {
+	id 'eclipse'
+	id 'idea'
+	id 'application'
+}
+
+application {
+	mainClass = 'BouncingBall'
+}
+
+dependencies {
+	implementation files('libs/acm-2.0.jar')
+}
+
+tasks.register('debug', JavaExec) {
+	dependsOn classes
+	mainClass = 'BouncingBall'
+	debug = true
+}

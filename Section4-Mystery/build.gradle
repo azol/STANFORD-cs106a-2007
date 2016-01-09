@@ -1,0 +1,20 @@
+plugins {
+	id 'eclipse'
+	id 'idea'
+	id 'application'
+}
+
+application {
+	mainClass = 'Mystery'
+}
+
+dependencies {
+	implementation files('libs/acm-2.0.jar')
+}
+
+
+tasks.register('debug', JavaExec) {
+	dependsOn classes
+	mainClass = 'Mystery'
+	debug = true
+}

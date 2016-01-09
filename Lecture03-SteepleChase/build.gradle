@@ -1,0 +1,29 @@
+plugins {
+	id 'eclipse'
+	id 'idea'
+	id 'application'
+}
+
+application {
+	mainClass = 'SteepleChase'
+}
+
+dependencies {
+	implementation files('libs/karel.jar', 'libs/acm-2.0.jar')
+}
+
+distributions {
+    main {
+        contents {
+            from('worlds/SteepleChase.w') {
+                into('worlds')
+            }
+        }
+    }
+}
+
+tasks.register('debug', JavaExec) {
+	dependsOn classes
+	mainClass = 'SteepleChase'
+	debug = true
+}

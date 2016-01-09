@@ -1,0 +1,19 @@
+plugins {
+	id 'eclipse'
+	id 'idea'
+	id 'application'
+}
+
+application {
+	mainClass = 'UfoGame'
+}
+
+dependencies {
+	implementation files('libs/acm-2.0.jar')
+}
+
+tasks.register('debug', JavaExec) {
+	dependsOn classes
+	mainClass = 'UfoGame'
+	debug = true
+}
